@@ -21,7 +21,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh; /* Full viewport height */
-            background-color: #f0f2f5; /* Consistent background */
+            background-color: #f0f2f5;
+            background: linear-gradient(to top, #8e2de2, #4a00e0); /* Consistent background */
         }
         .auth-container { /* Reusing the class from signin.html */
             max-width: 450px;
@@ -30,6 +31,7 @@
             background-color: #ffffff;
             border-radius: 1.5rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            ;
         }
         .social-login-btn {
             border-radius: 0.75rem !important;
@@ -79,7 +81,7 @@
                 <input type="password" class="form-control form-control-lg rounded-3" id="confirmPasswordInput" placeholder="Confirm Password" required>
             </div>
             <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg rounded-3">Sign Up</button>
+                <button type="submit" class="btn btn-primary btn-lg rounded-3 text-sucess">Sign Up</button>
             </div>
         </form>
         <p class="text-center mt-3 mb-0 text-muted">Already have an account? <a href="signin.html" class="text-decoration-none fw-bold">Sign In</a></p>
