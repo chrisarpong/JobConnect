@@ -455,16 +455,54 @@
 
     <!-- Footer Section - Enhanced with contact info and social links -->
     <footer class="footer py-5">
+
+            <!-- Contact Section - New section for contact form and login for FAQ -->
+    <section id="contact-section" class="contact-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Get in Touch</h2>
+            <p class="text-center text-muted mb-5">Have questions or need support? Fill out the form below.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8"> <!-- Changed to col-lg-8 to make it wider and centered -->
+                    <div class="card p-5 shadow-lg rounded-3"> <!-- Changed rounded-4 to rounded-3 for less rounded corners -->
+                        <h4 class="fw-bold mb-4 text-center">Send Us a Message</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control rounded-3" id="contactName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label">Your Email</label>
+                                <input type="email" class="form-control rounded-3" id="contactEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactSubject" class="form-label">Subject</label>
+                                <input type="text" class="form-control rounded-3" id="contactSubject">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMessage" class="form-label">Message</label>
+                                <textarea class="form-control rounded-3" id="contactMessage" rows="5" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-3">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <br>
         <div class="container">
             <div class="row">
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold mb-3">Job Connect</h5>
                     <p class="text-muted">Connecting talented individuals with leading companies worldwide.</p>
                     <div class="social-icons">
-                        <a href="#" class="text-muted me-3"><i class="bi bi-facebook footer-icon"></i></a>
-                        <a href="#" class="text-muted me-3"><i class="bi bi-twitter footer-icon"></i></a>
-                        <a href="#" class="text-muted me-3"><i class="bi bi-linkedin footer-icon"></i></a>
-                        <a href="#" class="text-muted"><i class="bi bi-instagram footer-icon"></i></a>
+                        <a href="https://web.facebook.com/r.php?entry_point=login" class="text-muted me-3"><i class="bi bi-facebook footer-icon"></i></a>
+                        <a href="https://x.com/i/flow/signup" class="text-muted me-3"><i class="bi bi-twitter footer-icon"></i></a>
+                        <a href="www.google.com" class="text-muted me-3"><i class="bi bi-linkedin footer-icon"></i></a>
+                        <a href="https://site.gctu.edu.gh/" class="text-muted"><i class="bi bi-instagram footer-icon"></i></a>
                     </div>
                 </div>
                 <div class="col-md-2 mb-4">
@@ -510,45 +548,11 @@
                     <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none">Terms of Service</a></li>
                 </ul>
             </div>
+            
         </div>
     </footer>
 
-    <!-- Contact Section - New section for contact form and login for FAQ -->
-    <section id="contact-section" class="contact-section py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-4">Get in Touch</h2>
-            <p class="text-center text-muted mb-5">Have questions or need support? Fill out the form below.</p>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-8"> <!-- Changed to col-lg-8 to make it wider and centered -->
-                    <div class="card p-5 shadow-lg rounded-3"> <!-- Changed rounded-4 to rounded-3 for less rounded corners -->
-                        <h4 class="fw-bold mb-4 text-center">Send Us a Message</h4>
-                        <form id="contactForm">
-                            <div class="mb-3">
-                                <label for="contactName" class="form-label">Your Name</label>
-                                <input type="text" class="form-control rounded-3" id="contactName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactEmail" class="form-label">Your Email</label>
-                                <input type="email" class="form-control rounded-3" id="contactEmail" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactSubject" class="form-label">Subject</label>
-                                <input type="text" class="form-control rounded-3" id="contactSubject">
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactMessage" class="form-label">Message</label>
-                                <textarea class="form-control rounded-3" id="contactMessage" rows="5" required></textarea>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg rounded-3">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <!-- Bootstrap JS (bundle includes Popper) -->
