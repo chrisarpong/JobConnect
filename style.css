@@ -1,0 +1,648 @@
+/* Custom CSS for Job Connect Page */
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Using a clean, modern font */
+    background-color: #f8f9fa; /* Light background for the body */
+    color: #343a40; /* Default text color */
+}
+
+/* Header/Navbar Styling */
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05); /* Subtle shadow for depth */
+    background-color: #ffffff !important; /* Ensure white background */
+}
+
+.navbar-brand {
+    font-size: 1.75rem; /* Larger logo text */
+    color: #4CAF50 !important; /* Primary brand color (green) */
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-right: 1.5rem; /* Spacing between nav items */
+    color: #212529 !important; /* Changed to black */
+}
+
+.nav-link.active {
+    color: #212529 !important; /* Changed active link color to black */
+}
+
+/* Custom Button Styles (Primary color based on brand green) */
+.btn-outline-primary {
+    border-color: #4CAF50;
+    color: #4CAF50;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+.btn-outline-primary:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background-color: #388E3C; /* Darker green on hover */
+    border-color: #388E3C;
+}
+
+/* Notification Bell Badge */
+.notification-count {
+    font-size: 0.65rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 0.3em 0.5em;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+    min-height: 550px; /* Adjust height as needed */
+    padding-top: 100px; /* Space for fixed navbar */
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+}
+
+.hero-section h1 {
+    font-size: 3.5rem; /* Large heading */
+    margin-bottom: 1.5rem;
+}
+
+.hero-section p.lead {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.search-bar-custom .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none; /* Remove default border */
+    box-shadow: none; /* Remove default shadow */
+    padding: 1rem 1.25rem; /* More padding */
+    font-size: 1.1rem;
+    border-radius: 0.75rem; /* Slightly rounded corners for inputs */
+    flex: 3 1 auto; /* Make inputs take up more proportional space */
+    min-width: 150px; /* Ensure a minimum width for readability */
+}
+
+/* Advanced Filter Button & Search Button */
+.advanced-filter-btn,
+.search-button-custom {
+    flex: 1 0 auto; /* Allow buttons to shrink if needed, but maintain content width */
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem; /* Consistent padding with inputs */
+    border-radius: 0.75rem; /* Match input border-radius */
+}
+
+.advanced-filter-btn {
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+    color: #495057;
+    border-top-left-radius: 0; /* Remove left radius if it's in the middle of input group */
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0; /* Remove right radius if it's in the middle of input group */
+    border-bottom-right-radius: 0;
+    transition: background-color 0.3s ease;
+}
+
+.advanced-filter-btn:hover {
+    background-color: #dee2e6;
+    border-color: #dee2e6;
+}
+
+.search-button-custom {
+    background-color: #6a11cb; /* Button color matching gradient */
+    border-color: #6a11cb;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-button-custom:hover {
+    background-color: #4d0b93;
+    border-color: #4d0b93;
+}
+
+.popular-searches .badge {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* Lighter background for tags */
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popular-searches .badge.tag-hover:hover {
+    background-color: rgba(255, 255, 255, 0.4) !important; /* Darker on hover */
+}
+
+
+/* Statistics Section Styling */
+.statistics-section {
+    background-color: white;
+    padding: 3rem 0;
+    margin-top: -50px; /* Overlap with hero section */
+    position: relative;
+    z-index: 1; /* Ensure it's above the hero section for the overlap effect */
+}
+
+.stat-card {
+    border: none;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,.1) !important;
+}
+
+.stat-card .card-title {
+    font-size: 2.5rem;
+    color: #6a11cb; /* Primary color for numbers */
+}
+
+.stat-card .card-text {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+/* Featured Jobs Section Styling */
+.featured-jobs-section {
+    padding: 5rem 0;
+}
+
+.job-card {
+    border: none; /* No default border */
+    border-radius: 1rem; /* More rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* Ensure white background */
+    padding-bottom: 2rem !important; /* Extra padding at bottom for button */
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12) !important; /* Stronger shadow on hover */
+}
+
+/* Job Type Badges with Gradient */
+.job-type-badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.8em;
+    border-radius: 0.35rem;
+    display: inline-block;
+    color: white !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    left: 0; /* Align to the left of the card */
+    top: 0; /* Align to the top of the card */
+    margin: 1.5rem !important; /* Custom margin to position it inside the card */
+}
+
+.job-type-fulltime {
+    background: linear-gradient(to right, #8e2de2, #4a00e0) !important; /* Purple gradient */
+}
+
+.job-type-remote {
+    background: linear-gradient(to right, #00b09b, #96c93d) !important; /* Greenish gradient */
+}
+
+.job-type-parttime {
+    background: linear-gradient(to right, #ffbe0b, #fb5607) !important; /* Orange/Yellow gradient */
+}
+
+/* Company Logo Placeholder */
+.company-logo-placeholder {
+    font-size: 2.5rem;
+    color: #e0e0e0; /* Light grey color for the icon */
+    padding: 0.5rem;
+    /* This float right needs to be handled carefully with position relative for the badge */
+    /* A more robust way might be to use flexbox for the card header */
+}
+
+.job-card .card-title {
+    font-size: 1.35rem;
+    margin-top: 0.5rem; /* Adjust margin if needed due to badge position */
+}
+
+.job-card .card-text {
+    font-size: 0.95rem;
+}
+
+/* Skill Tags */
+.tag-skill {
+    background-color: #e9ecef !important; /* Light grey background */
+    color: #495057 !important; /* Darker text */
+    padding: 0.4em 0.8em;
+    border-radius: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Apply Now Button */
+.btn-apply {
+    background: linear-gradient(to right, #8e2de2, #4a00e0); /* Purple gradient */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(74, 0, 224, 0.3); /* Shadow on hover */
+    opacity: 0.9;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-nav-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dee2e6;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav-btn:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #495057;
+}
+
+/* Explore by Category Section */
+.explore-category-section {
+    background-color: #f8f9fa; /* Match body background */
+    padding: 5rem 0;
+}
+
+.category-card {
+    border: none;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* White background for card */
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12) !important;
+}
+
+.category-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white; /* Icon color */
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+.category-tech {
+    background: linear-gradient(to right, #8e2de2, #4a00e0); /* Purple gradient */
+}
+
+.category-finance {
+    background: linear-gradient(to right, #00b09b, #96c93d); /* Greenish gradient */
+}
+
+.category-marketing {
+    background: linear-gradient(to right, #ff9900, #ff6600); /* Orange gradient */
+}
+
+.category-healthcare {
+    background: linear-gradient(to right, #e23a6c, #a80036); /* Reddish gradient */
+}
+
+.category-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.category-card .card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* Call to Action Section (New) */
+.cta-section {
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Same gradient as hero */
+    color: white;
+    padding: 5rem 0;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+}
+
+.cta-section .btn-outline-secondary {
+    border-color: white;
+    color: white;
+}
+
+.cta-section .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Footer Styling */
+.footer {
+    background-color: #f0f2f5; /* Light grey background for footer, matching signin page */
+    color: #343a40; /* Dark text for readability */
+    padding: 3rem 0;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #6c757d; /* Muted link color */
+}
+
+.footer a:hover {
+    color: #4CAF50; /* Green on hover */
+}
+
+.footer .fw-bold {
+    color: #212529; /* Darker headings */
+}
+
+.footer .social-icons .footer-icon {
+    font-size: 1.5rem;
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icons .footer-icon:hover {
+    color: #4CAF50; /* Green on hover */
+}
+
+/* New style for post-job.html card */
+.post-job-card {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.post-job-btn {
+    background: linear-gradient(to right, #4CAF50, #388E3C); /* Green gradient for post job button */
+    border-color: #4CAF50;
+}
+
+.post-job-btn:hover {
+    background-color: #388E3C;
+    border-color: #388E3C;
+}
+
+/* New style for companies.html cards */
+.company-listing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12) !important;
+}
+
+
+/* Chat Offcanvas Styles */
+.offcanvas-end {
+    width: 350px; /* Fixed width for chatbox */
+}
+.chat-messages {
+    min-height: 200px; /* Minimum height for chat history */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Messages stick to the bottom */
+}
+.message-bubble {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    word-wrap: break-word; /* Ensure long words wrap */
+}
+.message-bubble.received {
+    background-color: #e9ecef;
+    color: #343a40;
+    align-self: flex-start;
+}
+.message-bubble.sent {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Primary gradient for sent messages */
+    color: white;
+    align-self: flex-end;
+}
+
+/* New Styles for jobs.html */
+.filter-sidebar {
+    position: sticky; /* Makes the sidebar stick as you scroll */
+    top: 100px; /* Adjust based on navbar height */
+}
+
+.job-listing-bar {
+    border: 1px solid #e0e0e0; /* Subtle border for separation */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-listing-bar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,.08) !important;
+}
+
+.job-listing-bar .job-title {
+    font-size: 1.4rem;
+    color: #343a40;
+}
+
+.job-listing-bar .company-name {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.job-listing-bar .job-type-fulltime,
+.job-listing-bar .job-type-remote,
+.job-listing-bar .job-type-parttime,
+.job-listing-bar .job-type-contract {
+    font-size: 0.8rem;
+    padding: 0.3em 0.6em;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white !important;
+}
+
+/* Reusing existing badge gradients for job types */
+.job-listing-bar .job-type-fulltime {
+    background: linear-gradient(to right, #8e2de2, #4a00e0) !important; /* Purple gradient */
+}
+
+.job-listing-bar .job-type-remote {
+    background: linear-gradient(to right, #00b09b, #96c93d) !important; /* Greenish gradient */
+}
+
+.job-listing-bar .job-type-parttime {
+    background: linear-gradient(to right, #ffbe0b, #fb5607) !important; /* Orange/Yellow gradient */
+}
+
+.job-listing-bar .job-type-contract {
+    background: linear-gradient(to right, #17a2b8, #138496) !important; /* Teal gradient */
+}
+
+
+.job-listing-bar .salary-range {
+    font-size: 1.1rem;
+    color: #6a11cb; /* Primary purple color */
+}
+
+.job-listing-bar .posted-date {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.job-listing-bar .job-snippet {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.job-listing-bar .job-details-section {
+    margin-top: 1.5rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.job-listing-bar .job-details-section h6 {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #495057;
+}
+
+.job-listing-bar .job-details-section ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.job-listing-bar .job-details-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.btn-apply-listing {
+    background: linear-gradient(to right, #4CAF50, #388E3C); /* Green gradient for apply button */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-apply-listing:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(76, 175, 80, 0.3); /* Shadow on hover */
+    opacity: 0.9;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 991.98px) { /* Adjustments for medium and small screens */
+    .navbar-nav {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .navbar-nav .nav-item {
+        margin-right: 0;
+    }
+    .d-flex.align-items-center {
+        flex-direction: column;
+        align-items: center !important;
+    }
+    .d-flex.align-items-center > * {
+        margin-bottom: 1rem !important;
+        margin-right: 0 !important;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p.lead {
+        font-size: 1rem;
+    }
+    .search-bar-custom .form-control {
+        margin-bottom: 0.5rem;
+        border-radius: 0.75rem; /* Full radius on mobile for individual fields */
+    }
+    .search-button-custom {
+        width: 100%;
+        border-radius: 0.75rem; /* Full radius on mobile for button */
+    }
+    .advanced-filter-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        border-radius: 0.75rem; /* Full radius on mobile for button */
+    }
+    .popular-searches .badge {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Adjustments for job and category cards on smaller screens */
+    .job-card, .category-card {
+        padding: 1.5rem !important;
+    }
+
+    .job-type-badge {
+        margin: 1rem !important;
+    }
+
+    .company-logo-placeholder {
+        font-size: 2rem;
+    }
+
+    .category-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .filter-sidebar {
+        position: static; /* Remove sticky on mobile */
+        top: auto;
+    }
+}
+
+@media (max-width: 575.98px) { /* Adjustments for extra small screens */
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p.lead {
+        font-size: 0.9rem;
+    }
+    .stat-card .card-title {
+        font-size: 2rem;
+    }
+    .stat-card .card-text {
+        font-size: 1rem;
+    }
+    .job-card .card-title {
+        font-size: 1.2rem;
+    }
+    .category-card .card-title {
+        font-size: 1.1rem;
+    }
+    .btn-apply {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Connect - Job Listings</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section (Copied from index.html for consistency) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Job Connect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="jobs.html">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="companies.html">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact-section">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i> EN
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="twi">Twi (Ghana)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="ewe">Ewe (Ghana)</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown me-3">
+                        <a class="nav-link" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i> <span class="badge bg-danger rounded-pill notification-count">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">Notifications</h6></li>
+                            <li><a class="dropdown-item" href="#">Your application for 'Senior Dev' was viewed.</a></li>
+                            <li><a class="dropdown-item" href="#">New job match: 'Marketing Specialist' in Accra.</a></li>
+                            <li><a class="dropdown-item" href="#">Employer 'TechVision Inc' sent you a message.</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">View All Notifications</a></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-link nav-link me-3 p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#chatOffcanvas" aria-controls="chatOffcanvas">
+                        <i class="bi bi-chat-dots-fill"></i>
+                    </button>
+                    <a class="btn btn-outline-primary me-2" href="signin.html" role="button">Sign In</a>
+                    <button class="btn btn-primary" type="button">Post a Job</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Offcanvas (Copied from index.html for consistency) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="chatOffcanvas" aria-labelledby="chatOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="chatOffcanvasLabel">Messages</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div class="chat-messages flex-grow-1 overflow-auto p-3 mb-3 border rounded-3 bg-light">
+                <div class="d-flex justify-content-start mb-2">
+                    <div class="message-bubble received p-2 rounded-3">Hi there! Are you available for an interview next week?</div>
+                </div>
+                <div class="d-flex justify-content-end mb-2">
+                    <div class="message-bubble sent p-2 rounded-3 text-white">Yes, I am. What days work best for you?</div>
+                </div>
+                <div class="d-flex justify-content-start mb-2">
+                    <div class="message-bubble received p-2 rounded-3">Great! How about Wednesday at 10 AM?</div>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control rounded-start-pill" placeholder="Type a message...">
+                <button class="btn btn-primary rounded-end-pill" type="button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content for Job Listings -->
+    <main class="container mt-5 pt-5 pb-5">
+        <div class="row">
+            <!-- Left Sidebar for Filters -->
+            <div class="col-lg-3 mb-4">
+                <div class="card p-4 shadow-sm rounded-4 filter-sidebar">
+                    <h5 class="fw-bold mb-4">Job Filters</h5>
+
+                    <div class="mb-4">
+                        <label for="filterKeyword" class="form-label fw-bold">Keywords</label>
+                        <input type="text" class="form-control rounded-3" id="filterKeyword" placeholder="e.g., React, SEO">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="filterLocation" class="form-label fw-bold">Location</label>
+                        <input type="text" class="form-control rounded-3" id="filterLocation" placeholder="e.g., New York, Remote">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Job Type</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="full-time" id="filterFullTime">
+                            <label class="form-check-label" for="filterFullTime">Full-time</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="part-time" id="filterPartTime">
+                            <label class="form-check-label" for="filterPartTime">Part-time</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="contract" id="filterContract">
+                            <label class="form-check-label" for="filterContract">Contract</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="remote" id="filterRemote">
+                            <label class="form-check-label" for="filterRemote">Remote</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="internship" id="filterInternship">
+                            <label class="form-check-label" for="filterInternship">Internship</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Experience Level</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="experienceLevel" id="filterEntry" value="entry">
+                            <label class="form-check-label" for="filterEntry">Entry Level</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="experienceLevel" id="filterMid" value="mid">
+                            <label class="form-check-label" for="filterMid">Mid Level</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="experienceLevel" id="filterSenior" value="senior">
+                            <label class="form-check-label" for="filterSenior">Senior Level</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="filterSalary" class="form-label fw-bold">Salary Range</label>
+                        <select class="form-select rounded-3" id="filterSalary">
+                            <option selected>Any</option>
+                            <option value="30k">Up to $30,000</option>
+                            <option value="60k">$30,000 - $60,000</option>
+                            <option value="90k">$60,000 - $90,000</option>
+                            <option value="120k">$90,000 - $120,000</option>
+                            <option value="120k+">$120,000+</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary w-100 btn-lg">Apply Filters</button>
+                    <button class="btn btn-outline-secondary w-100 mt-2">Clear Filters</button>
+                </div>
+            </div>
+
+            <!-- Right Main Job Listings Area -->
+            <div class="col-lg-9">
+                <h2 class="mb-4 fw-bold">Recent Job Openings</h2>
+                <p class="text-muted mb-4">Showing 20 of 1,240 jobs</p>
+
+                <!-- Job Listing 1 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Senior Frontend Developer</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>TechVision Inc &bull; <i class="bi bi-geo-alt-fill me-1"></i>New York, NY</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                            <span class="badge job-type-remote">Remote Option</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$90,000 - $120,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 2 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        We are seeking a highly skilled Senior Frontend Developer with expertise in React, JavaScript, and modern CSS frameworks like TailwindCSS. Join our dynamic team to build cutting-edge web applications.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Develop and maintain user-facing features using React.js.</li>
+                            <li>Collaborate with backend developers and UX/UI designers.</li>
+                            <li>Ensure the technical feasibility of UI/UX designs.</li>
+                            <li>Optimize application for maximum speed and scalability.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your resume and a cover letter detailing your relevant experience to careers@techvision.com or click the 'Apply Now' button. Please include a link to your online portfolio or GitHub profile.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 2 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">UX/UI Designer</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>CreativeMinds &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-remote me-2">Remote</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$80,000 - $110,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 5 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        CreativeMinds is looking for a talented UX/UI Designer to create intuitive and visually appealing interfaces. Experience with Figma and prototyping tools is essential.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Conduct user research and usability testing.</li>
+                            <li>Design wireframes, storyboards, user flows, and process flows.</li>
+                            <li>Create high-fidelity mockups and prototypes using Figma.</li>
+                            <li>Work closely with product managers and engineers.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Please send your resume and a link to your portfolio to designjobs@creativeminds.com. Portfolios showcasing mobile-first design and interactive prototypes are highly valued.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 3 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Digital Marketing Specialist</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>GrowthHackers &bull; <i class="bi bi-geo-alt-fill me-1"></i>San Francisco, CA</p>
+                            <span class="badge job-type-parttime me-2">Part-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$60,000 - $85,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 1 week ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        We need a Digital Marketing Specialist to manage our online campaigns, SEO, and social media presence. Strong analytical skills and experience with marketing tools are a plus.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Develop and implement digital marketing strategies.</li>
+                            <li>Manage SEO, SEM, and social media campaigns.</li>
+                            <li>Analyze market trends and competitor activities.</li>
+                            <li>Report on campaign performance and ROI.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Email your resume and a brief explanation of your digital marketing achievements to marketing@growthhackers.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 4 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Data Scientist (Mid-Level)</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Data Insights Co. &bull; <i class="bi bi-geo-alt-fill me-1"></i>Boston, MA</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$100,000 - $130,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 3 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Seeking a Data Scientist with strong Python/R skills and experience in machine learning. You will be responsible for analyzing complex datasets and building predictive models.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Develop and implement machine learning models.</li>
+                            <li>Analyze large, complex datasets to extract insights.</li>
+                            <li>Collaborate with engineering and product teams.</li>
+                            <li>Present findings to stakeholders.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Apply via our online portal with your resume and a link to your Kaggle or personal data science projects.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 5 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Customer Support Representative</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Global Solutions &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                            <span class="badge job-type-remote">Remote</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$45,000 - $55,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 1 day ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Join our customer support team to assist clients with product inquiries and technical issues. Excellent communication skills and a customer-first attitude are a must.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Respond to customer inquiries via email, chat, and phone.</li>
+                            <li>Troubleshoot and resolve technical issues.</li>
+                            <li>Document customer interactions and solutions.</li>
+                            <li>Provide feedback to product and engineering teams.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Send your resume and a brief cover letter explaining your customer service philosophy to supportcareers@globalsolutions.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 6 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Project Manager</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Innovate Builders &bull; <i class="bi bi-geo-alt-fill me-1"></i>Chicago, IL</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$110,000 - $140,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 4 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Innovate Builders is seeking an experienced Project Manager to oversee large-scale construction projects. PMP certification is highly preferred.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Plan and execute construction projects from start to finish.</li>
+                            <li>Manage project budgets, schedules, and resources.</li>
+                            <li>Communicate with stakeholders and resolve issues.</li>
+                            <li>Ensure projects are completed on time and within budget.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your resume and a project management portfolio to hr@innovatebuilders.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 7 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Financial Analyst</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Apex Finance Group &bull; <i class="bi bi-geo-alt-fill me-1"></i>Dallas, TX</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$70,000 - $95,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 6 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Apex Finance Group is hiring a Financial Analyst to support our investment strategies. Strong analytical skills and experience with financial modeling are required.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Perform financial forecasting, reporting, and operational metrics tracking.</li>
+                            <li>Analyze financial data and create financial models for decision support.</li>
+                            <li>Identify and drive process improvements, including the creation of standard and ad-hoc reports.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Please send your resume and a brief cover letter to careers@apexfinance.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 8 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Graphic Designer (Entry-Level)</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>PixelPerfect Studio &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-remote me-2">Remote</span>
+                            <span class="badge job-type-parttime">Part-time Option</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$40,000 - $55,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 1 day ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        PixelPerfect Studio is seeking a creative Entry-Level Graphic Designer to join our remote team. Proficiency in Adobe Creative Suite is a must.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Create visual concepts using computer software or by hand.</li>
+                            <li>Develop illustrations, logos, and other designs.</li>
+                            <li>Work with clients to understand their needs.</li>
+                            <li>Ensure final graphics and layouts are visually appealing.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your resume and a link to your online portfolio to design@pixelperfect.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 9 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Backend Engineer (Node.js)</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Cloud Solutions &bull; <i class="bi bi-geo-alt-fill me-1"></i>Seattle, WA</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$100,000 - $130,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 3 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Cloud Solutions is hiring a Backend Engineer with strong Node.js experience to build scalable and robust APIs.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Design, develop, and maintain server-side logic.</li>
+                            <li>Build and optimize APIs for various client applications.</li>
+                            <li>Ensure high performance and responsiveness to requests.</li>
+                            <li>Collaborate with frontend developers.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Apply directly through our careers page or send your resume to engineering@cloudsolutions.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 10 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Content Writer</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Content Creators &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-contract me-2">Contract</span>
+                            <span class="badge job-type-remote">Remote</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$30 - $50/hour</span>
+                            <p class="posted-date text-muted small mt-1">Posted 2 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Seeking a freelance Content Writer for various projects, including blog posts, website copy, and marketing materials. Strong research skills required.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Write clear, concise, and engaging content.</li>
+                            <li>Research industry-related topics.</li>
+                            <li>Ensure all-around consistency (style, fonts, images and tone).</li>
+                            <li>Collaborate with marketing and design teams.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Send your resume and 3-5 writing samples to apply@contentcreators.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 11 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">HR Generalist</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>People Solutions &bull; <i class="bi bi-geo-alt-fill me-1"></i>Austin, TX</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$65,000 - $85,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 5 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        People Solutions is looking for an HR Generalist to support our growing team. Experience with HRIS and employee relations is a plus.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Manage recruitment and onboarding processes.</li>
+                            <li>Handle employee relations and performance management.</li>
+                            <li>Administer benefits and compensation programs.</li>
+                            <li>Ensure compliance with labor laws.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Apply through our career portal or email your resume to hr@peoplesolutions.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 12 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Mobile App Developer (iOS/Android)</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>AppCrafters &bull; <i class="bi bi-geo-alt-fill me-1"></i>San Jose, CA</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$95,000 - $125,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 1 week ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        AppCrafters is seeking a Mobile App Developer with experience in both iOS (Swift/Objective-C) and Android (Kotlin/Java) platforms.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Design and build advanced applications for the iOS and Android platforms.</li>
+                            <li>Collaborate with cross-functional teams to define, design, and ship new features.</li>
+                            <li>Unit-test code for robustness, including edge cases, usability, and general reliability.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your resume and a link to your app portfolio on the App Store or Google Play to mobiledev@appcrafters.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 13 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Sales Executive</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>SalesForce Pro &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                            <span class="badge job-type-remote">Remote</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$70,000 - $100,000 + Commission</span>
+                            <p class="posted-date text-muted small mt-1">Posted 3 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        SalesForce Pro is looking for a driven Sales Executive to expand our client base. Proven sales experience and excellent negotiation skills are a must.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Identify and develop new sales opportunities.</li>
+                            <li>Build and maintain strong client relationships.</li>
+                            <li>Achieve sales targets and contribute to revenue growth.</li>
+                            <li>Prepare and deliver sales presentations.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Send your resume and a cover letter outlining your sales achievements to sales@salesforcepro.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 14 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Product Manager</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Innovate Products &bull; <i class="bi bi-geo-alt-fill me-1"></i>San Francisco, CA</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$120,000 - $160,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 4 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Innovate Products is seeking an experienced Product Manager to lead the development of our next-generation software solutions.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Define product vision, strategy, and roadmap.</li>
+                            <li>Gather and prioritize product and customer requirements.</li>
+                            <li>Work closely with engineering, sales, and marketing.</li>
+                            <li>Conduct market research and competitive analysis.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Apply via our careers page with your resume and a brief statement on your product philosophy.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 15 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">DevOps Engineer</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>CloudOps Inc. &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                            <span class="badge job-type-remote">Remote</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$110,000 - $140,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 6 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        CloudOps Inc. is looking for a skilled DevOps Engineer to manage our cloud infrastructure and CI/CD pipelines. Experience with AWS/Azure/GCP is a must.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Manage and optimize cloud infrastructure.</li>
+                            <li>Implement and maintain CI/CD pipelines.</li>
+                            <li>Automate deployment and scaling processes.</li>
+                            <li>Monitor system performance and ensure reliability.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your resume and a brief overview of your experience with cloud platforms to devops@cloudops.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 16 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Marketing Coordinator</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>BrandBoost Agency &bull; <i class="bi bi-geo-alt-fill me-1"></i>Los Angeles, CA</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$50,000 - $70,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 2 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        BrandBoost Agency is seeking a Marketing Coordinator to assist with campaign execution and content creation.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Assist in the development and execution of marketing campaigns.</li>
+                            <li>Coordinate content creation for various platforms.</li>
+                            <li>Manage social media accounts and engage with followers.</li>
+                            <li>Support the marketing team with administrative tasks.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Email your resume and a cover letter to marketing@brandboost.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 17 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Network Administrator</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>SecureNet Solutions &bull; <i class="bi bi-geo-alt-fill me-1"></i>Washington D.C.</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$75,000 - $95,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 3 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        SecureNet Solutions is looking for a Network Administrator to maintain and troubleshoot our network infrastructure.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Install, configure, and maintain network hardware and software.</li>
+                            <li>Monitor network performance and ensure security.</li>
+                            <li>Troubleshoot network issues and provide technical support.</li>
+                            <li>Implement network security measures.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Apply via our company website or send your resume to itcareers@securenet.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 18 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Customer Success Manager</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>ClientFirst SaaS &bull; <i class="bi bi-geo-alt-fill me-1"></i>Remote</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                            <span class="badge job-type-remote">Remote</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$80,000 - $100,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 4 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        ClientFirst SaaS is hiring a Customer Success Manager to build strong relationships with our clients and ensure their success with our product.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Develop and maintain strong relationships with clients.</li>
+                            <li>Onboard new clients and provide ongoing support.</li>
+                            <li>Identify opportunities for product adoption and expansion.</li>
+                            <li>Gather client feedback and relay to product team.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your resume and a cover letter highlighting your customer success experience to success@clientfirst.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 19 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Accountant</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>Balance Books LLC &bull; <i class="bi bi-geo-alt-fill me-1"></i>Houston, TX</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$60,000 - $80,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 5 days ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        Balance Books LLC is seeking an experienced Accountant to manage financial records and ensure compliance. CPA preferred.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Prepare and analyze financial statements.</li>
+                            <li>Manage accounts payable and receivable.</li>
+                            <li>Process payroll and ensure tax compliance.</li>
+                            <li>Reconcile bank statements and general ledger accounts.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Apply via our website or send your resume to accounting@balancebooks.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Listing 20 -->
+                <div class="job-listing-bar card mb-3 p-4 shadow-sm rounded-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="job-title fw-bold">Research Scientist</h5>
+                            <p class="company-name text-muted mb-1"><i class="bi bi-building me-1"></i>BioTech Innovators &bull; <i class="bi bi-geo-alt-fill me-1"></i>San Diego, CA</p>
+                            <span class="badge job-type-fulltime me-2">Full-time</span>
+                        </div>
+                        <div class="text-end">
+                            <span class="salary-range fw-bold text-primary">$100,000 - $150,000</span>
+                            <p class="posted-date text-muted small mt-1">Posted 1 week ago</p>
+                        </div>
+                    </div>
+                    <p class="job-snippet text-muted mb-3">
+                        BioTech Innovators is hiring a Research Scientist to conduct experiments and analyze data in our cutting-edge lab. Ph.D. in a relevant field required.
+                    </p>
+                    <div class="job-details-section">
+                        <h6>Key Responsibilities:</h6>
+                        <ul>
+                            <li>Design and execute scientific experiments.</li>
+                            <li>Analyze and interpret complex data.</li>
+                            <li>Prepare research reports and presentations.</li>
+                            <li>Collaborate with interdisciplinary teams.</li>
+                        </ul>
+                        <h6>How to Apply:</h6>
+                        <p class="small text-muted mb-2">
+                            Submit your CV and a research statement to research@biotechinnovators.com.
+                        </p>
+                        <button class="btn btn-apply-listing" type="button">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Pagination (Placeholder) -->
+                <nav aria-label="Page navigation example" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section (Copied from index.html for consistency) -->
+    <footer class="footer py-4 bg-dark text-white-50 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Job Connect. All rights reserved.</p>
+            <ul class="list-inline mt-2 mb-0">
+                <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                <li class="list-inline-item">&middot;</li>
+                <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

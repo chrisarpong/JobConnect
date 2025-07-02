@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Connect - Companies</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section (Copied from index.html for consistency) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Job Connect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="companies.html">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact-section">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i> EN
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="twi">Twi (Ghana)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="ewe">Ewe (Ghana)</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown me-3">
+                        <a class="nav-link" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i> <span class="badge bg-danger rounded-pill notification-count">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">Notifications</h6></li>
+                            <li><a class="dropdown-item" href="#">Your application for 'Senior Dev' was viewed.</a></li>
+                            <li><a class="dropdown-item" href="#">New job match: 'Marketing Specialist' in Accra.</a></li>
+                            <li><a class="dropdown-item" href="#">Employer 'TechVision Inc' sent you a message.</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">View All Notifications</a></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-link nav-link me-3 p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#chatOffcanvas" aria-controls="chatOffcanvas">
+                        <i class="bi bi-chat-dots-fill"></i>
+                    </button>
+                    <a class="btn btn-outline-primary me-2" href="signin.html" role="button">Sign In</a>
+                    <a class="btn btn-primary" href="post-job.html" role="button">Post a Job</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Offcanvas (Copied from index.html for consistency) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="chatOffcanvas" aria-labelledby="chatOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="chatOffcanvasLabel">Messages</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div class="chat-messages flex-grow-1 overflow-auto p-3 mb-3 border rounded-3 bg-light">
+                <div class="d-flex justify-content-start mb-2">
+                    <div class="message-bubble received p-2 rounded-3">Hi there! Are you available for an interview next week?</div>
+                </div>
+                <div class="d-flex justify-content-end mb-2">
+                    <div class="message-bubble sent p-2 rounded-3 text-white">Yes, I am. What days work best for you?</div>
+                </div>
+                <div class="d-flex justify-content-start mb-2">
+                    <div class="message-bubble received p-2 rounded-3">Great! How about Wednesday at 10 AM?</div>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control rounded-start-pill" placeholder="Type a message...">
+                <button class="btn btn-primary rounded-end-pill" type="button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content for Companies Page -->
+    <main class="container mt-5 pt-5 pb-5">
+        <h1 class="text-center fw-bold mb-4">Explore Companies</h1>
+        <p class="text-center text-muted mb-5">Discover top companies, learn about their culture, and find exciting career opportunities.</p>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Company Card 1 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-building display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Innovate Solutions</h5>
+                        <p class="card-text text-muted">Pioneering tech solutions for a better future.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>35 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 2 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-lightbulb display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">BrightSpark Innovations</h5>
+                        <p class="card-text text-muted">Creating cutting-edge software products.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>28 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 3 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-globe display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Global Connect Corp</h5>
+                        <p class="card-text text-muted">Bridging global markets with innovative services.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>42 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 4 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-graph-up display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Apex Analytics</h5>
+                        <p class="card-text text-muted">Data-driven insights for business growth.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>18 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 5 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-people display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Human Capital Partners</h5>
+                        <p class="card-text text-muted">Specializing in HR and talent management.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>25 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 6 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-palette display-4 text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Creative Canvas Studio</h5>
+                        <p class="card-text text-muted">Designing impactful visual experiences.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>15 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 7 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-shield-lock display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">SecureNet Solutions</h5>
+                        <p class="card-text text-muted">Cybersecurity and network infrastructure.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Takoradi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>22 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 8 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-currency-dollar display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Wealth Management Group</h5>
+                        <p class="card-text text-muted">Financial planning and investment services.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>12 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 9 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-truck display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Logistics Masters</h5>
+                        <p class="card-text text-muted">Efficient supply chain and logistics.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>19 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 10 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-hospital display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">MediCare Health Systems</h5>
+                        <p class="card-text text-muted">Providing comprehensive healthcare services.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>30 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 11 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-book display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">EduTech Solutions</h5>
+                        <p class="card-text text-muted">Innovating education through technology.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>10 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 12 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-hammer display-4 text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">BuildRight Construction</h5>
+                        <p class="card-text text-muted">Building the future, one structure at a time.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>27 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 13 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-shop display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Retail Innovations Group</h5>
+                        <p class="card-text text-muted">Transforming the retail experience.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Takoradi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>21 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 14 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-cloud display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">CloudSphere Technologies</h5>
+                        <p class="card-text text-muted">Cloud computing and infrastructure solutions.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>38 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 15 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-camera-reels display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Media Fusion Co.</h5>
+                        <p class="card-text text-muted">Digital media and content creation.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>14 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 16 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-car-front display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">AutoDrive Solutions</h5>
+                        <p class="card-text text-muted">Innovating in automotive technology.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>16 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 17 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-house-door display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">EcoBuild Homes</h5>
+                        <p class="card-text text-muted">Sustainable and eco-friendly construction.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>24 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 18 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-music-note-beamed display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Sonic Arts Collective</h5>
+                        <p class="card-text text-muted">Audio production and sound design.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>8 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 19 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-cpu display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Quantum Computing Labs</h5>
+                        <p class="card-text text-muted">Research and development in quantum tech.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>10 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 20 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-receipt display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">FinTech Innovators</h5>
+                        <p class="card-text text-muted">Revolutionizing financial technology.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>London, UK</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>26 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 21 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-chat-dots display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Communicate Solutions</h5>
+                        <p class="card-text text-muted">Experts in digital communication strategies.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>17 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 22 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-robot display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">AI Dynamics</h5>
+                        <p class="card-text text-muted">Developing intelligent AI systems.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>29 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 23 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-shop display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">E-Commerce Giants</h5>
+                        <p class="card-text text-muted">Leading online retail platforms.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>40 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 24 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-globe-americas display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Travel Explorer Co.</h5>
+                        <p class="card-text text-muted">Curating unforgettable travel experiences.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>13 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 25 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-camera display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Visual Storytellers</h5>
+                        <p class="card-text text-muted">Producing captivating visual content.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>9 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 26 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-tools display-4 text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Industrial Solutions Ltd.</h5>
+                        <p class="card-text text-muted">Providing robust industrial equipment.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Takoradi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>15 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 27 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-tree display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Green Energy Corp</h5>
+                        <p class="card-text text-muted">Sustainable energy solutions for a greener planet.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>20 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 28 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-headphones display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">SoundWave Technologies</h5>
+                        <p class="card-text text-muted">Innovating in audio hardware and software.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>11 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 29 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-building display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Urban Development Group</h5>
+                        <p class="card-text text-muted">Shaping modern cityscapes.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>23 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 30 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-briefcase display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Future Forward Consulting</h5>
+                        <p class="card-text text-muted">Strategic consulting for future-ready businesses.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>16 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 31 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-laptop display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Software Nexus</h5>
+                        <p class="card-text text-muted">Connecting businesses with custom software.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>32 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 32 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-cash-coin display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Capital Growth Advisors</h5>
+                        <p class="card-text text-muted">Expert financial advisory services.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>14 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 33 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-megaphone display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Digital Marketing Pros</h5>
+                        <p class="card-text text-muted">Driving online presence and engagement.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>18 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 34 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-heart-pulse display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Wellness Innovations</h5>
+                        <p class="card-text text-muted">Advancing health and well-being solutions.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Takoradi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>25 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 35 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-book display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Academic Pathways</h5>
+                        <p class="card-text text-muted">Supporting educational development.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>12 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 36 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-bricks display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Structural Engineering Co.</h5>
+                        <p class="card-text text-muted">Designing robust and safe structures.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>19 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 37 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-code-slash display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">CodeCrafters</h5>
+                        <p class="card-text text-muted">Building elegant and efficient code.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>30 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 38 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-briefcase display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Strategic Consultants</h5>
+                        <p class="card-text text-muted">Guiding businesses to strategic success.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>10 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 39 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-bar-chart display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Market Insights Co.</h5>
+                        <p class="card-text text-muted">Providing deep market analysis.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>14 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 40 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-gem display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Precious Gems Mining</h5>
+                        <p class="card-text text-muted">Ethical sourcing of precious minerals.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Obuasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>22 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 41 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-tree-fill display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">AgroHarvest Solutions</h5>
+                        <p class="card-text text-muted">Modernizing agriculture with tech.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tamale, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>17 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 42 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-lightbulb display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Innovate Ghana</h5>
+                        <p class="card-text text-muted">Fostering local innovation and startups.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>10 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 43 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-bank display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">West African Bank</h5>
+                        <p class="card-text text-muted">Reliable banking services across the region.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>28 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 44 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-truck display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Coastal Logistics</h5>
+                        <p class="card-text text-muted">Delivering goods across coastal regions.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Takoradi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>16 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 45 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-hospital display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Ghana Health Solutions</h5>
+                        <p class="card-text text-muted">Comprehensive healthcare for all.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>24 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 46 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-book display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Future Scholars Academy</h5>
+                        <p class="card-text text-muted">Nurturing the next generation of leaders.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>9 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 47 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-hammer display-4 text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Solid Foundations Builders</h5>
+                        <p class="card-text text-muted">Quality construction and infrastructure.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>20 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 48 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-shop display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Marketplace Connect</h5>
+                        <p class="card-text text-muted">Online marketplace for local businesses.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>15 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 49 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-cloud display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">DataStream Solutions</h5>
+                        <p class="card-text text-muted">Cloud data management and analytics.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>28 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 50 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-camera-reels display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Creative Content House</h5>
+                        <p class="card-text text-muted">Producing engaging digital content.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>11 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 51 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-car-front display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Future Mobility Tech</h5>
+                        <p class="card-text text-muted">Developing next-gen transportation solutions.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>18 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 52 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-house-door display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Green Living Solutions</h5>
+                        <p class="card-text text-muted">Promoting sustainable home and lifestyle.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Kumasi, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>13 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 53 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-music-note-beamed display-4 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Harmony Records</h5>
+                        <p class="card-text text-muted">Discovering and producing musical talent.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>7 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 54 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-cpu display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Tech Innovators Collective</h5>
+                        <p class="card-text text-muted">Collaborative tech R&D and solutions.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>26 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 55 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-receipt display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Global Payments Systems</h5>
+                        <p class="card-text text-muted">Secure and efficient payment processing.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>London, UK</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>21 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 56 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-chat-dots display-4 text-success mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Connect Communications</h5>
+                        <p class="card-text text-muted">Enhancing business and personal communication.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>16 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 57 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-robot display-4 text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Robotics & Automation Inc.</h5>
+                        <p class="card-text text-muted">Automating industries with advanced robotics.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Tema, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>20 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 58 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-shop display-4 text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Retail Solutions Africa</h5>
+                        <p class="card-text text-muted">Optimizing retail operations across Africa.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>30 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 59 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-globe-americas display-4 text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">World Explorer Tours</h5>
+                        <p class="card-text text-muted">Global travel and adventure planning.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Remote</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>10 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Company Card 60 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm rounded-4 company-listing-card">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-camera display-4 text-info mb-3"></i>
+                        <h5 class="card-title fw-bold mb-2">Lens & Light Productions</h5>
+                        <p class="card-text text-muted">Professional photography and videography.</p>
+                        <ul class="list-unstyled small text-start mx-auto" style="max-width: 200px;">
+                            <li><i class="bi bi-geo-alt-fill me-2"></i>Accra, Ghana</li>
+                            <li><i class="bi bi-briefcase-fill me-2"></i>8 Open Jobs</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-primary btn-lg">Load More Companies</button>
+        </div>
+    </main>
+
+    <!-- Footer Section (Copied from index.html for consistency) -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Job Connect</h5>
+                    <p class="text-muted">Connecting talented individuals with leading companies worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-muted me-3"><i class="bi bi-facebook footer-icon"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="bi bi-twitter footer-icon"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="bi bi-linkedin footer-icon"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-instagram footer-icon"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold mb-3">For Job Seekers</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Browse Jobs</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Resume Builder</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Job Alerts</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Career Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold mb-3">For Employers</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="post-job.html" class="text-muted text-decoration-none">Post a Job</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Browse Candidates</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Recruiting Solutions</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Pricing Plans</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
+                    <p class="text-muted mb-1"><i class="bi bi-geo-alt-fill me-2"></i>123 Job Connect Street, Accra, Ghana</p>
+                    <p class="text-muted mb-1"><i class="bi bi-telephone-fill me-2"></i>+233 55 123 4567</p>
+                    <p class="text-muted mb-1"><i class="bi bi-envelope-fill me-2"></i>info@jobconnect.com</p>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-muted small">
+                &copy; 2025 Job Connect. All rights reserved.
+                <ul class="list-inline mt-2 mb-0">
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                    <li class="list-inline-item">&middot;</li>
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

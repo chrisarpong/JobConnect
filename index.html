@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Connect - Find Your Dream Job</title>
+    <!-- Bootstrap CSS -->
+    <!-- This links to Bootstrap's stylesheet for responsive design and pre-styled components. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (for icons like location, building, bell, chat, calendar, social media) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <!-- This links to your custom stylesheet for specific styling not covered by Bootstrap. -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Poppins for a modern look, as per previous design) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section - Contains the logo, navigation links, and user actions -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <!-- Brand/Logo - Updated to "Job Connect" -->
+            <a class="navbar-brand fw-bold" href="#">Job Connect</a>
+            <!-- Toggler for mobile navigation - Bootstrap's responsive feature -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="companies.html">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Updated href to scroll to contact section -->
+                        <a class="nav-link" href="#contact-section">Contact</a>
+                    </li>
+                </ul>
+                <!-- User Actions: Language Selector, Notifications, Messaging, Sign In / Post a Job -->
+                <div class="d-flex align-items-center">
+                    <!-- Language Selector - Placeholder for i18n -->
+                    <div class="dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i> EN
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="twi">Twi (Ghana)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="ewe">Ewe (Ghana)</a></li>
+                            <!-- Add more languages as needed -->
+                        </ul>
+                    </div>
+                    <!-- Notifications Bell - Placeholder for real-time alerts -->
+                    <div class="dropdown me-3">
+                        <a class="nav-link" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i> <span class="badge bg-danger rounded-pill notification-count">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">Notifications</h6></li>
+                            <li><a class="dropdown-item" href="#">Your application for 'Senior Dev' was viewed.</a></li>
+                            <li><a class="dropdown-item" href="#">New job match: 'Marketing Specialist' in Accra.</a></li>
+                            <li><a class="dropdown-item" href="#">Employer 'TechVision Inc' sent you a message.</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">View All Notifications</a></li>
+                        </ul>
+                    </div>
+                    <!-- Messaging Icon - Placeholder for built-in chat -->
+                    <button class="btn btn-link nav-link me-3 p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#chatOffcanvas" aria-controls="chatOffcanvas">
+                        <i class="bi bi-chat-dots-fill"></i>
+                    </button>
+
+                    <!-- Sign In Button -->
+                    <a class="btn btn-outline-primary me-2" href="signin.html" role="button">Sign In</a>
+                    <!-- Changed to Post a Job -->
+                    <a class="btn btn-primary" href="post-job.html" role="button">Post a Job</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Offcanvas - Placeholder for messaging UI -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="chatOffcanvas" aria-labelledby="chatOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="chatOffcanvasLabel">Messages</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div class="chat-messages flex-grow-1 overflow-auto p-3 mb-3 border rounded-3 bg-light">
+                <!-- Example messages -->
+                <div class="d-flex justify-content-start mb-2">
+                    <div class="message-bubble received p-2 rounded-3">Hi there! Are you available for an interview next week?</div>
+                </div>
+                <div class="d-flex justify-content-end mb-2">
+                    <div class="message-bubble sent p-2 rounded-3 text-white">Yes, I am. What days work best for you?</div>
+                </div>
+                <div class="d-flex justify-content-start mb-2">
+                    <div class="message-bubble received p-2 rounded-3">Great! How about Wednesday at 10 AM?</div>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control rounded-start-pill" placeholder="Type a message...">
+                <button class="btn btn-primary rounded-end-pill" type="button">Send</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Hero Section - Main call to action area -->
+    <section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Find Your Dream Job Today</h1>
+            <p class="lead mb-4">Join thousands of companies and job seekers connecting through our platform</p>
+            <!-- Search Bar with Advanced Filters -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8">
+                    <div class="input-group input-group-lg search-bar-custom">
+                        <input type="text" class="form-control" placeholder="Job title, keywords, or company" aria-label="Job title, keywords, or company">
+                        <input type="text" class="form-control" placeholder="Location" aria-label="Location">
+                        <!-- Button to trigger advanced search filters (e.g., a modal or offcanvas) -->
+                        <button class="btn btn-secondary advanced-filter-btn" type="button" data-bs-toggle="modal" data-bs-target="#advancedSearchModal">
+                            <i class="bi bi-sliders me-1"></i> Filters
+                        </button>
+                        <button class="btn btn-dark search-button-custom" type="button">Search Job</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Popular Searches / Tags -->
+            <div class="popular-searches mt-4">
+                <span class="me-2">Popular Searches:</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill me-2 tag-hover">Developer</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill me-2 tag-hover">Designer</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill me-2 tag-hover">Marketing</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill me-2 tag-hover">Remote</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Search Modal - Placeholder for detailed filters -->
+    <div class="modal fade" id="advancedSearchModal" tabindex="-1" aria-labelledby="advancedSearchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-4 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="advancedSearchModalLabel">Advanced Job Filters</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="jobCategory" class="form-label">Job Category</label>
+                                <select class="form-select rounded-3" id="jobCategory">
+                                    <option selected>Select Category</option>
+                                    <option value="it">IT & Software</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="marketing">Marketing & Sales</option>
+                                    <option value="design">Design & Creative</option>
+                                    <option value="hr">Human Resources</option>
+                                    <!-- Add more categories from JobCategories table -->
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="jobType" class="form-label">Job Type</label>
+                                <select class="form-select rounded-3" id="jobType">
+                                    <option selected>Select Type</option>
+                                    <option value="full-time">Full-time</option>
+                                    <option value="part-time">Part-time</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="remote">Remote</option>
+                                    <option value="internship">Internship</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="experienceLevel" class="form-label">Experience Level</label>
+                                <select class="form-select rounded-3" id="experienceLevel">
+                                    <option selected>Select Level</option>
+                                    <option value="entry">Entry Level</option>
+                                    <option value="junior">Junior</option>
+                                    <option value="mid">Mid Level</option>
+                                    <option value="senior">Senior Level</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="salaryRange" class="form-label">Salary Range</label>
+                                <select class="form-select rounded-3" id="salaryRange">
+                                    <option selected>Select Range</option>
+                                    <option value="0-30k">Below $30,000</option>
+                                    <option value="30k-60k">$30,000 - $60,000</option>
+                                    <option value="60k-90k">$60,000 - $90,000</option>
+                                    <option value="90k+">Above $90,000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="keywords" class="form-label">Keywords / Skills (e.g., React, SEO)</label>
+                            <input type="text" class="form-control rounded-3" id="keywords" placeholder="Add keywords separated by commas">
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3">Apply Filters</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Statistics Section - Displays key metrics -->
+    <section class="statistics-section py-5">
+        <div class="container">
+            <div class="row text-center">
+                <!-- Statistic Card 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card stat-card shadow-sm p-4">
+                        <h2 class="card-title fw-bold text-primary">15K+</h2>
+                        <p class="card-text text-muted">Jobs Available</p>
+                    </div>
+                </div>
+                <!-- Statistic Card 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card stat-card shadow-sm p-4">
+                        <h2 class="card-title fw-bold text-primary">8K+</h2>
+                        <p class="card-text text-muted">Companies</p>
+                    </div>
+                </div>
+                <!-- Statistic Card 3 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card stat-card shadow-sm p-4">
+                        <h2 class="card-title fw-bold text-primary">12K+</h2>
+                        <p class="card-text text-muted">Candidates</p>
+                    </div>
+                </div>
+                <!-- Statistic Card 4 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card stat-card shadow-sm p-4">
+                        <h2 class="card-title fw-bold text-primary">95%</h2>
+                        <p class="card-text text-muted">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section - Displays individual job cards -->
+    <section class="featured-jobs-section py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-3 fw-bold">Featured Jobs</h2>
+            <p class="lead text-muted mb-5">Discover the most exciting job opportunities from top companies around the world</p>
+            <div class="row justify-content-center">
+                <!-- Job Card 1: Senior Frontend Developer -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card job-card shadow-sm p-4 text-start position-relative">
+                        <!-- Job Type Badge -->
+                        <span class="badge job-type-badge job-type-fulltime position-absolute top-0 start-0 m-3">FULL-TIME</span>
+                        <!-- Company Logo Placeholder -->
+                        <div class="company-logo-placeholder float-end">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mt-4">Senior Frontend Developer</h5>
+                        <p class="card-text text-muted mb-2">TechVision Inc &bull; New York, NY</p>
+                        <!-- Tech Tags -->
+                        <div class="d-flex flex-wrap mb-3">
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">React</span>
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">Javascript</span>
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">TailwindCSS</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-primary">$90K-$120K</span>
+                            <!-- Interview Scheduling Button - Placeholder -->
+                            <button class="btn btn-outline-secondary btn-sm me-2" type="button" data-bs-toggle="modal" data-bs-target="#interviewScheduleModal">
+                                <i class="bi bi-calendar-event me-1"></i> Schedule Interview
+                            </button>
+                            <button class="btn btn-apply" type="button">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 2: UX/UI Designer -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card job-card shadow-sm p-4 text-start position-relative">
+                        <!-- Job Type Badge -->
+                        <span class="badge job-type-badge job-type-remote position-absolute top-0 start-0 m-3">REMOTE</span>
+                        <!-- Company Logo Placeholder -->
+                        <div class="company-logo-placeholder float-end">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mt-4">UX/UI Designer</h5>
+                        <p class="card-text text-muted mb-2">CreativeMinds &bull; Remote</p>
+                        <!-- Tech Tags -->
+                        <div class="d-flex flex-wrap mb-3">
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">Figma</span>
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">UI Design</span>
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">Prototyping</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-primary">$80K-$110K</span>
+                             <!-- Interview Scheduling Button - Placeholder -->
+                            <button class="btn btn-outline-secondary btn-sm me-2" type="button" data-bs-toggle="modal" data-bs-target="#interviewScheduleModal">
+                                <i class="bi bi-calendar-event me-1"></i> Schedule Interview
+                            </button>
+                            <button class="btn btn-apply" type="button">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 3: Digital Marketing Specialist -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card job-card shadow-sm p-4 text-start position-relative">
+                        <!-- Job Type Badge -->
+                        <span class="badge job-type-badge job-type-parttime position-absolute top-0 start-0 m-3">PART-TIME</span>
+                        <!-- Company Logo Placeholder -->
+                        <div class="company-logo-placeholder float-end">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mt-4">Digital Marketing Specialist</h5>
+                        <p class="card-text text-muted mb-2">GrowthHackers &bull; San Francisco, CA</p>
+                        <!-- Tech Tags -->
+                        <div class="d-flex flex-wrap mb-3">
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">SEO</span>
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">Social Media</span>
+                            <span class="badge bg-secondary text-dark tag-skill me-2 mb-2">Analytics</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-primary">$60K-$85K</span>
+                             <!-- Interview Scheduling Button - Placeholder -->
+                            <button class="btn btn-outline-secondary btn-sm me-2" type="button" data-bs-toggle="modal" data-bs-target="#interviewScheduleModal">
+                                <i class="bi bi-calendar-event me-1"></i> Schedule Interview
+                            </button>
+                            <button class="btn btn-apply" type="button">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Navigation Arrows -->
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-light rounded-circle mx-2 carousel-nav-btn"><i class="bi bi-chevron-left"></i></button>
+                <button class="btn btn-light rounded-circle mx-2 carousel-nav-btn"><i class="bi bi-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interview Schedule Modal - Placeholder for calendar integration -->
+    <div class="modal fade" id="interviewScheduleModal" tabindex="-1" aria-labelledby="interviewScheduleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="interviewScheduleModalLabel">Schedule Interview for [Job Title]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-muted mb-4">Select a preferred date and time for your interview.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="interviewDate" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control rounded-3" id="interviewDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="interviewTime" class="form-label">Preferred Time</label>
+                            <input type="time" class="form-control rounded-3" id="interviewTime">
+                        </div>
+                        <div class="mb-3">
+                            <label for="interviewNotes" class="form-label">Notes (Optional)</label>
+                            <textarea class="form-control rounded-3" id="interviewNotes" rows="3" placeholder="Any specific requests or notes for the interviewer"></textarea>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3">Confirm Schedule</button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-3 text-muted small">
+                        This is a placeholder for Google Calendar API integration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Explore by Category Section - Features category cards with icons -->
+    <section class="explore-category-section py-5">
+        <div class="container text-center">
+            <h2 class="mb-3 fw-bold">Explore by Category</h2>
+            <p class="lead text-muted mb-5">Find jobs in your field of expertise across various industries</p>
+            <div class="row justify-content-center">
+                <!-- Category Card 1: Technology -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card category-card p-4 text-center shadow-sm">
+                        <div class="category-icon-wrapper mx-auto mb-3 category-tech">
+                            <i class="bi bi-laptop"></i> <!-- Example icon for technology -->
+                        </div>
+                        <h5 class="card-title fw-bold">Technology</h5>
+                        <p class="card-text text-muted">1,240 jobs</p>
+                    </div>
+                </div>
+                <!-- Category Card 2: Finance -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card category-card p-4 text-center shadow-sm">
+                        <div class="category-icon-wrapper mx-auto mb-3 category-finance">
+                            <i class="bi bi-graph-up-arrow"></i> <!-- Example icon for finance -->
+                        </div>
+                        <h5 class="card-title fw-bold">Finance</h5>
+                        <p class="card-text text-muted">860 jobs</p>
+                    </div>
+                </div>
+                <!-- Category Card 3: Marketing -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card category-card p-4 text-center shadow-sm">
+                        <div class="category-icon-wrapper mx-auto mb-3 category-marketing">
+                            <i class="bi bi-megaphone"></i> <!-- Example icon for marketing -->
+                        </div>
+                        <h5 class="card-title fw-bold">Marketing</h5>
+                        <p class="card-text text-muted">700 jobs</p>
+                    </div>
+                </div>
+                <!-- Category Card 4: Healthcare -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card category-card p-4 text-center shadow-sm">
+                        <div class="category-icon-wrapper mx-auto mb-3 category-healthcare">
+                            <i class="bi bi-heart-pulse"></i> <!-- Example icon for healthcare -->
+                        </div>
+                        <h5 class="card-title fw-bold">Healthcare</h5>
+                        <p class="card-text text-muted">950 jobs</p>
+                    </div>
+                </div>
+                <!-- Add more category cards as needed based on JobCategories table -->
+            </div>
+            <button class="btn btn-outline-primary mt-4 px-4 py-2">View All Categories</button>
+        </div>
+    </section>
+
+    <!-- Call to Action Section - "Ready to take the next step?" -->
+    <section class="cta-section text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Ready to take the next step?</h2>
+            <p class="lead mb-4">Join thousands of professionals who found their dream jobs through Job Connect</p>
+            <div class="d-flex justify-content-center">
+                <a href="jobs.html" class="btn btn-primary btn-lg px-4 py-2 me-3">Find a Job</a>
+                <!-- Changed to Post a Job -->
+                <a href="post-job.html" class="btn btn-outline-secondary btn-lg px-4 py-2">Post a Job</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section - Enhanced with contact info and social links -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Job Connect</h5>
+                    <p class="text-muted">Connecting talented individuals with leading companies worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-muted me-3"><i class="bi bi-facebook footer-icon"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="bi bi-twitter footer-icon"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="bi bi-linkedin footer-icon"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-instagram footer-icon"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold mb-3">For Job Seekers</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Browse Jobs</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Resume Builder</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Job Alerts</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Career Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold mb-3">For Employers</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="post-job.html" class="text-muted text-decoration-none">Post a Job</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Browse Candidates</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Recruiting Solutions</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Pricing Plans</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
+                    <p class="text-muted mb-1"><i class="bi bi-geo-alt-fill me-2"></i>123 Job Connect Street, Accra, Ghana</p>
+                    <p class="text-muted mb-1"><i class="bi bi-telephone-fill me-2"></i>+233 55 123 4567</p>
+                    <p class="text-muted mb-1"><i class="bi bi-envelope-fill me-2"></i>info@jobconnect.com</p>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-muted small">
+                &copy; 2025 Job Connect. All rights reserved.
+                <ul class="list-inline mt-2 mb-0">
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                    <li class="list-inline-item">&middot;</li>
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Section - New section for contact form and login for FAQ -->
+    <section id="contact-section" class="contact-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Get in Touch</h2>
+            <p class="text-center text-muted mb-5">Have questions or need support? Fill out the form below.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8"> <!-- Changed to col-lg-8 to make it wider and centered -->
+                    <div class="card p-5 shadow-lg rounded-3"> <!-- Changed rounded-4 to rounded-3 for less rounded corners -->
+                        <h4 class="fw-bold mb-4 text-center">Send Us a Message</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control rounded-3" id="contactName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label">Your Email</label>
+                                <input type="email" class="form-control rounded-3" id="contactEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactSubject" class="form-label">Subject</label>
+                                <input type="text" class="form-control rounded-3" id="contactSubject">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMessage" class="form-label">Message</label>
+                                <textarea class="form-control rounded-3" id="contactMessage" rows="5" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-3">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap JS (bundle includes Popper) -->
+    <!-- This is necessary for Bootstrap's interactive components like the navbar toggler, modals, and offcanvas. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <!-- This links to your custom JavaScript file for any interactive elements. -->
+    <script src="script.js"></script>
+</body>
+</html>
